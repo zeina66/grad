@@ -1,26 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:graduation_project/fetaures/login/login_screen.dart';
-import 'package:graduation_project/fetaures/login/signup_screen.dart';
-
+import 'core/routes/app_routes.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const FixItApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class FixItApp extends StatelessWidget {
+  const FixItApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: 'FixIt',
       debugShowCheckedModeBanner: false,
-      title: 'Auth Demo',
-      theme: ThemeData(primarySwatch: Colors.blue),
-      initialRoute: '/login',
-      routes: {
-        '/login': (context) => const LoginScreen(),
-        '/signup': (context) => const SignUpScreen(),
-      },
+      initialRoute: AppRoutes.home,
+      onGenerateRoute: AppRoutes.generateRoute,
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        scaffoldBackgroundColor: Colors.white,
+        fontFamily: 'Poppins',
+      ),
     );
   }
 }
